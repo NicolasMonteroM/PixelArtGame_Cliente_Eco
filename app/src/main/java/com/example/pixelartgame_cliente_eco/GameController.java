@@ -20,6 +20,8 @@ public class GameController extends AppCompatActivity implements OnMessageListen
 
         Gson gson = new Gson();
 
+        //cambio c:
+
        /* case R.id.upBtn:
         Message upStartMsg = new Message("FLYYY");
         String upStartJson = gson.toJson(upStartMsg);
