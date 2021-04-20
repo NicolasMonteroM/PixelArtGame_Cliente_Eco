@@ -15,7 +15,7 @@ public class TCPSingleton extends Thread {
     public static TCPSingleton getInstance() {
         if (instance == null) {
             instance = new TCPSingleton();
-           // instance.start();
+            instance.start();
         }
         return instance;
     }
@@ -48,7 +48,7 @@ public class TCPSingleton extends Thread {
     }
 
     public void sendMessage(String msg) {
-
+        Log.e(":::",msg);
         new Thread(() -> {
             try {
                 Log.e("::", msg);

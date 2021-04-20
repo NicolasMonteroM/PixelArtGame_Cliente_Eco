@@ -3,6 +3,7 @@ package com.example.pixelartgame_cliente_eco;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -21,7 +22,7 @@ public class MariquitaJ1 extends AppCompatActivity implements View.OnClickListen
         botonAccion.setOnClickListener(this);
 
         tcp = TCPSingleton.getInstance();
-        tcp.start();
+       // tcp.start();
 
     }
 
@@ -30,6 +31,7 @@ public class MariquitaJ1 extends AppCompatActivity implements View.OnClickListen
         Gson gson = new Gson();
         Message avanzar = new Message("MOVEE");
         String enviarMovee = gson.toJson(avanzar);
+        Log.e("::", enviarMovee);
         tcp.sendMessage(enviarMovee);
     }
 }

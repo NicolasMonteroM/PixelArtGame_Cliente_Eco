@@ -20,10 +20,8 @@ public class MainActivity extends AppCompatActivity implements OnMessageListener
         botonConect = findViewById(R.id.botonConect);
         botonConect.setOnClickListener(
                 v -> {
-
                         Intent i = new Intent(this, MariquitaJ1.class);
                         startActivity(i);
-
                 }
         );
     }
