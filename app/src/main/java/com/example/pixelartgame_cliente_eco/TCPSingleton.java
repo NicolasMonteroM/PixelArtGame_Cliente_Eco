@@ -35,7 +35,7 @@ public class TCPSingleton extends Thread {
     public void run() {
         try {
             // <–– PC address -->
-            socket = new Socket("192.168.1.14", 8000);
+            socket = new Socket("10.0.2.2", 8000);
             Log.e("::", "entrando a socket");
             OutputStream os = socket.getOutputStream();
             OutputStreamWriter osw = new OutputStreamWriter(os);

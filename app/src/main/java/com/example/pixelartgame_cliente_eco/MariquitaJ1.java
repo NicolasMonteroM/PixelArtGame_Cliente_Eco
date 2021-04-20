@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 
 import com.google.gson.Gson;
 
-public class MariquitaJ1 extends AppCompatActivity implements View.OnClickListener{
+public class MariquitaJ1 extends AppCompatActivity implements OnMessageListener, View.OnClickListener{
     private ImageButton botonAccion;
     private TCPSingleton tcp;
     @Override
@@ -33,5 +33,10 @@ public class MariquitaJ1 extends AppCompatActivity implements View.OnClickListen
         String enviarMovee = gson.toJson(avanzar);
         Log.e("::", enviarMovee);
         tcp.sendMessage(enviarMovee);
+    }
+
+    @Override
+    public void OnMessage(String msg) {
+
     }
 }
