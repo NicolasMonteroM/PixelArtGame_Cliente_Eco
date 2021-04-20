@@ -19,10 +19,12 @@
         android:id="@+id/botonConect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/connectbg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/connectbg"
         tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
