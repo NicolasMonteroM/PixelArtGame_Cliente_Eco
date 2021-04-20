@@ -1,31 +1,35 @@
 package com.example.pixelartgame_cliente_eco;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
 
-public class MariquitaJ1 extends AppCompatActivity implements OnMessageListener, View.OnClickListener{
-    private ImageButton botonAccion;
+public class Abejita extends AppCompatActivity implements OnMessageListener, View.OnClickListener{
+
+    // Atributos
+    private ImageButton botonAccion1;
     private TCPSingleton tcp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mariquita_j1);
+        setContentView(R.layout.activity_abejita);
 
-        botonAccion = findViewById(R.id.botonAccion);
+        // Referencias
+        botonAccion1 = findViewById(R.id.botonAccion1);
 
-        botonAccion.setOnClickListener(this);
+        botonAccion1.setOnClickListener(this);
 
         tcp = TCPSingleton.getInstance();
        // tcp.start();
 
     }
 
+    // Métodos
     @Override
     public void onClick(View v) {
         Gson gson = new Gson();

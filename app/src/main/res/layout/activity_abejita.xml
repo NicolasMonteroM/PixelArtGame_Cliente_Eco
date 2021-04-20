@@ -4,30 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MariquitaJ1">
+    android:background="#00FFFFFF"
+    tools:context=".Mariquita">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="410dp"
         android:layout_height="728dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="1dp"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:srcCompat="@drawable/fondoabeja"
+        tools:srcCompat="@drawable/fondoabeja" />
 
     <ImageButton
-        android:id="@+id/botonAccion"
+        android:id="@+id/botonAccion1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:background="@null"
+        android:src="@drawable/botonabeja"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:src="@drawable/botonabeja"
         tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
