@@ -5,27 +5,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
 public class Mariquita extends AppCompatActivity implements OnMessageListener, View.OnClickListener{
     // Atributos
-    private ImageButton botonAccion;
+    private ImageButton botonAccion1;
     private TCPSingleton tcp;
+    private TextView distanceText;
+    private int x=250;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mariquita);
 
         // Referencias
-        botonAccion = findViewById(R.id.botonAccion1);
+        botonAccion1 = findViewById(R.id.botonAccion1);
+        distanceText = findViewById(R.id.distanceText);
 
-        botonAccion.setOnClickListener(this);
+        botonAccion1.setOnClickListener(this);
 
         tcp = TCPSingleton.getInstance();
        // tcp.start();
-
+        distanceText.setText(x + "km");
     }
 
     // Métodos
@@ -36,6 +41,7 @@ public class Mariquita extends AppCompatActivity implements OnMessageListener, V
         String enviarMovee = gson.toJson(avanzar);
         Log.e("::", enviarMovee);
         tcp.sendMessage(enviarMovee);
+        x=x-5;
     }
 
     @Override
