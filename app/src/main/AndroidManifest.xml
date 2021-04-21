@@ -11,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PixelArtGame_Cliente_Eco">
-        <activity android:name=".Mariquita"></activity>
-        <activity android:name=".GameController" />
+        <activity android:name=".Mariquita" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

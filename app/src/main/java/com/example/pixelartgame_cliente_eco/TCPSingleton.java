@@ -2,11 +2,17 @@ package com.example.pixelartgame_cliente_eco;
 
 import android.util.Log;
 
+import com.google.gson.Gson;
+
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class TCPSingleton extends Thread {
 
@@ -22,19 +28,20 @@ public class TCPSingleton extends Thread {
         return instance;
     }
 
-    private TCPSingleton(){ //Constructor singleton
+    private TCPSingleton() { //Constructor singleton
     }
+
 
     private  Socket socket;
     private BufferedWriter bwriter;
 
     // Patrón observer
 
-    //private OnMessageListener observer;
+    private OnMessageListener observer;
 
-    //public void setObserver(OnMessageListener observer) {
-    //    this.observer = observer;
-    //}
+    public void setObserver(OnMessageListener observer) {
+        this.observer = observer;
+    }
 
     @Override
     public void run() {

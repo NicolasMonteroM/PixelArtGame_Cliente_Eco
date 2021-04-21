@@ -4,15 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity implements OnMessageListener {
 
     // Atributos
     private ImageButton botonConect;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
         // Referecias
@@ -21,8 +25,11 @@ public class MainActivity extends AppCompatActivity implements OnMessageListener
         // Cambio de pantalla con click
         botonConect.setOnClickListener(
                 v -> {
-                        Intent i = new Intent(this, Mariquita.class);
-                        startActivity(i);
+                    // cliente 2
+
+                    Intent i = new Intent(this, Mariquita.class);
+                    startActivity(i);
+
                 }
         );
     }

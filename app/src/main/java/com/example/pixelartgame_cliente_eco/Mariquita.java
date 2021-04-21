@@ -5,47 +5,54 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-public class Mariquita extends AppCompatActivity implements OnMessageListener, View.OnClickListener{
+public class Mariquita extends AppCompatActivity implements OnMessageListener, View.OnClickListener {
     // Atributos
     private ImageButton botonAccion1;
     private TCPSingleton tcp;
-    private TextView distanceText;
-    private int x=250;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_mariquita);
 
         // Referencias
         botonAccion1 = findViewById(R.id.botonAccion1);
-        distanceText = findViewById(R.id.distanceText);
 
         botonAccion1.setOnClickListener(this);
 
         tcp = TCPSingleton.getInstance();
+        tcp.setObserver(this);
        // tcp.start();
-        distanceText.setText(x + "km");
+
     }
 
     // Métodos
     @Override
     public void onClick(View v) {
+        //serialización gson
         Gson gson = new Gson();
         Message avanzar = new Message("MOVEE");
         String enviarMovee = gson.toJson(avanzar);
         Log.e("::", enviarMovee);
         tcp.sendMessage(enviarMovee);
-        x=x-5;
     }
 
     @Override
     public void OnMessage(String msg) {
-
+        runOnUiThread(
+                () -> {
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+                }
+        );
     }
 }
